@@ -1,152 +1,80 @@
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ying Zhang Ski Coaching</title>
-  <meta name="description" content="Private ski coaching in Switzerland (on-piste). Lessons for adults & expats in English and Chinese." />
+  <title>Ying Zhang Ski Coaching｜苏黎世周边双板滑雪教学</title>
   <meta name="theme-color" content="#0b1220" />
-
   <style>
     :root{
       --bg:#0b1220; --card:#111a2f; --muted:#a7b0c0; --text:#eef2ff;
       --line:rgba(255,255,255,.10); --accent:#7dd3fc; --accent2:#a78bfa;
-      --shadow:0 12px 28px rgba(0,0,0,.35);
-      --radius:18px;
-      --max:1040px;
+      --shadow:0 12px 28px rgba(0,0,0,.35); --radius:18px; --max:980px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background: radial-gradient(1200px 600px at 20% -10%, rgba(125,211,252,.20), transparent 60%),
                   radial-gradient(900px 500px at 90% 10%, rgba(167,139,250,.18), transparent 55%),
                   var(--bg);
       color:var(--text);
-      line-height:1.55;
+      line-height:1.65;
     }
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
     header{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
       background: linear-gradient(to bottom, rgba(11,18,32,.90), rgba(11,18,32,.55));
       border-bottom:1px solid var(--line);
     }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-      padding:14px 24px;
-      max-width:var(--max); margin:0 auto;
-    }
-    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.2px}
+    .nav{max-width:var(--max); margin:0 auto; padding:14px 22px; display:flex; justify-content:space-between; align-items:center; gap:12px;}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800}
     .logo{
       width:34px; height:34px; border-radius:10px;
-      background: linear-gradient(135deg, rgba(125,211,252,.9), rgba(167,139,250,.9));
+      background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,139,250,.95));
+      display:grid; place-items:center; color:#06101f; font-weight:900;
       box-shadow: 0 10px 18px rgba(0,0,0,.25);
-      display:grid; place-items:center; color:#081020; font-weight:900;
     }
-    nav ul{list-style:none; margin:0; padding:0; display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
-    nav a{
-      display:inline-flex; align-items:center;
-      padding:8px 10px; border-radius:12px;
-      color:rgba(238,242,255,.92);
-      border:1px solid transparent;
-      font-size:14px;
-    }
+    nav ul{list-style:none; margin:0; padding:0; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    nav a{display:inline-flex; padding:8px 10px; border-radius:12px; border:1px solid transparent; font-size:14px; color:rgba(238,242,255,.92)}
     nav a:hover{border-color:var(--line); background:rgba(255,255,255,.04)}
     .cta{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px;
-      border-radius:14px;
-      font-weight:700; font-size:14px;
+      padding:10px 14px; border-radius:14px; font-weight:900; font-size:14px;
       background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,139,250,.95));
-      color:#06101f;
-      border:0;
-      box-shadow: 0 14px 24px rgba(0,0,0,.28);
+      color:#06101f; box-shadow: 0 14px 24px rgba(0,0,0,.28);
       white-space:nowrap;
     }
-    .cta:hover{filter:brightness(1.05)}
-    .hero{padding:44px 0 18px}
-    .grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:18px;
-    }
-    @media (max-width: 880px){
-      .grid{grid-template-columns:1fr}
-      .nav{padding:12px 16px}
-      .wrap{padding:18px}
-      nav ul{gap:8px}
-    }
-    .card{
-      background: rgba(17,26,47,.78);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .heroCard{padding:26px}
-    h1{margin:0 0 10px; font-size:40px; line-height:1.12}
-    @media (max-width: 520px){ h1{font-size:34px} }
-    .sub{color:var(--muted); margin:0 0 18px; font-size:16px}
-    .pillRow{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 0}
-    .pill{
-      font-size:13px; color:rgba(238,242,255,.92);
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      padding:7px 10px; border-radius:999px;
-    }
-    .heroActions{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
     .ghost{
       display:inline-flex; align-items:center; justify-content:center;
       padding:10px 14px; border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      font-weight:700; font-size:14px;
-      color:rgba(238,242,255,.92);
+      border:1px solid var(--line); background:rgba(255,255,255,.03);
+      font-weight:800; font-size:14px; color:rgba(238,242,255,.92);
     }
     .ghost:hover{background:rgba(255,255,255,.06)}
-    .sideCard{padding:22px}
-    .kpi{display:grid; gap:12px}
-    .k{
-      display:flex; justify-content:space-between; gap:10px;
-      padding:12px 14px; border-radius:16px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-    }
-    .k b{font-size:14px}
-    .k span{color:var(--muted); font-size:14px}
-    section{padding:20px 0}
-    .sectionTitle{display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin:0 0 12px}
-    .sectionTitle h2{margin:0; font-size:22px}
-    .sectionTitle p{margin:0; color:var(--muted); font-size:14px}
-    .cards3{
-      display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
-    }
-    @media (max-width: 880px){ .cards3{grid-template-columns:1fr} }
+    .card{background: rgba(17,26,47,.78); border:1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);}
+    .hero{padding:26px 0 10px}
+    .heroCard{padding:22px}
+    h1{margin:0 0 10px; font-size:36px; line-height:1.15}
+    .sub{margin:0; color:var(--muted)}
+    .grid{display:grid; grid-template-columns: 1fr; gap:14px;}
+    .cards{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
+    @media (max-width: 860px){ .cards{grid-template-columns:1fr} h1{font-size:32px} }
     .mini{padding:18px}
-    .mini h3{margin:0 0 6px; font-size:16px}
-    .mini p{margin:0; color:var(--muted); font-size:14px}
-    .split{
-      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
-    }
-    @media (max-width: 880px){ .split{grid-template-columns:1fr} }
-    .list{margin:10px 0 0; padding-left:18px; color:rgba(238,242,255,.92)}
-    .list li{margin:6px 0}
-    .muted{color:var(--muted)}
-    .hr{height:1px; background:var(--line); margin:18px 0}
-    footer{padding:22px 0 40px; color:var(--muted); font-size:13px}
-    .footGrid{display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; align-items:center}
-    .smallLinks{display:flex; gap:12px; flex-wrap:wrap}
-    .smallLinks a{color:var(--muted)}
-    .smallLinks a:hover{color:rgba(238,242,255,.9)}
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px; border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      font-size:13px;
-    }
+    .mini h2{margin:0 0 8px; font-size:18px}
+    .mini p{margin:0; color:var(--muted)}
+    .btnRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    ul{margin:10px 0 0; padding-left:18px}
+    li{margin:6px 0}
+    .hr{height:1px; background:var(--line); margin:16px 0}
+    footer{padding:20px 0 36px; color:var(--muted); font-size:13px}
+    .foot{display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center}
+    .links{display:flex; flex-wrap:wrap; gap:10px}
+    .links a{color:var(--muted)}
+    .links a:hover{color:rgba(238,242,255,.92)}
   </style>
 </head>
 
@@ -157,199 +85,71 @@
         <div class="logo">YZ</div>
         <div>
           <div>Ying Zhang Ski Coaching</div>
-          <div style="font-size:12px; color:var(--muted); font-weight:600;">Switzerland • On-piste</div>
         </div>
       </div>
 
-      <nav aria-label="Primary">
-        <ul>
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="private-lessons.html">Private Lessons</a></li>
-          <li><a href="group-camps.html">Group & Camps</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="payment.html">Payment</a></li>
-          <li><a href="terms.html">Terms</a></li>
-          <li><a class="cta" href="contact.html">Contact / Book</a></li>
-        </ul>
-      </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <!-- HERO -->
     <section class="hero">
-      <div class="grid">
-        <div class="card heroCard">
-          <h1>Private ski coaching for adults who want real progress.</h1>
-          <p class="sub">
-            On-piste coaching in Central Switzerland. Clear feedback, practical drills, and confidence-building technique.
-            Lessons available in <b>English</b> and <b>Chinese</b>.
-          </p>
-
-          <div class="heroActions">
-            <a class="cta" href="contact.html">Request a lesson</a>
-            <a class="ghost" href="private-lessons.html">See private lessons</a>
-            <a class="ghost" href="group-camps.html">Explore camps</a>
-          </div>
-
-          <div class="pillRow" aria-label="Highlights">
-            <div class="pill">On-piste only</div>
-            <div class="pill">Weekend availability</div>
-            <div class="pill">Adults & expats</div>
-            <div class="pill">Technique + confidence</div>
-            <div class="pill">Safety-focused</div>
-          </div>
-
-          <div class="hr"></div>
-
-          <div class="muted" style="font-size:14px;">
-            <b>Typical locations:</b> Stoos • Engelberg • Andermatt (adjust to your actual resorts)
-          </div>
-        </div>
-
-        <aside class="card sideCard">
-          <div class="sectionTitle" style="margin-bottom:10px;">
-            <h2 style="font-size:18px; margin:0;">At a glance</h2>
-            <p>Quick details</p>
-          </div>
-
-          <div class="kpi">
-            <div class="k"><b>Teaching</b><span>On-piste (groomed)</span></div>
-            <div class="k"><b>Languages</b><span>English / 中文</span></div>
-            <div class="k"><b>Availability</b><span>Weekends (season)</span></div>
-            <div class="k"><b>Lesson types</b><span>Private + small groups</span></div>
-          </div>
-
-          <div class="hr"></div>
-
-          <div class="badge" title="Add your preferred contact channels on contact.html">
-            <span>📩</span><span>Email / WeChat / WhatsApp</span>
-          </div>
-
-          <div style="margin-top:12px;">
-            <a class="ghost" href="about.html" style="width:100%;">Read my coaching approach</a>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section>
-      <div class="sectionTitle">
-        <h2>What I offer</h2>
-        <p>Simple options, focused outcomes</p>
-      </div>
-
-      <div class="cards3">
-        <div class="card mini">
-          <h3>Private lessons</h3>
-          <p>Customized coaching for faster progress: carving basics, speed control, short turns, confidence on steeper pistes.</p>
-          <div class="hr"></div>
-          <a class="ghost" href="private-lessons.html">Details →</a>
-        </div>
-
-        <div class="card mini">
-          <h3>Small group lessons</h3>
-          <p>Train with friends or skill-matched groups. Efficient drills, clear feedback, and a structured plan.</p>
-          <div class="hr"></div>
-          <a class="ghost" href="group-camps.html">Details →</a>
-        </div>
-
-        <div class="card mini">
-          <h3>Weekend camps</h3>
-          <p>Multi-session coaching with progression. Ideal if you want a clear focus and momentum over 1–2 days.</p>
-          <div class="hr"></div>
-          <a class="ghost" href="group-camps.html#camps">Details →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY -->
-    <section>
-      <div class="sectionTitle">
-        <h2>Why students choose this coaching</h2>
-        <p>Clear, adult-friendly teaching</p>
-      </div>
-
-      <div class="split">
-        <div class="card mini">
-          <h3>Structured feedback</h3>
-          <p>I identify the biggest limiting habit first, then use targeted drills so you feel the change immediately.</p>
-          <ul class="list">
-            <li>Clear goals per session</li>
-            <li>Simple, repeatable cues</li>
-            <li>Progress you can measure</li>
-          </ul>
-        </div>
-
-        <div class="card mini">
-          <h3>Safety & confidence</h3>
-          <p>We build control and comfort step-by-step. You’ll learn how to ski slower, smoother, and with less fatigue.</p>
-          <ul class="list">
-            <li>Terrain choice that matches your level</li>
-            <li>Speed control and line selection</li>
-            <li>Confidence on reds (and beyond)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOCIAL PROOF PREVIEW -->
-    <section>
-      <div class="sectionTitle">
-        <h2>Testimonials</h2>
-        <p>Short notes from past students</p>
-      </div>
-
-      <div class="cards3">
-        <div class="card mini">
-          <h3>“I finally understood edge control.”</h3>
-          <p class="muted">— Student, Zurich</p>
-        </div>
-        <div class="card mini">
-          <h3>“Best lesson I’ve had in Switzerland.”</h3>
-          <p class="muted">— Student, Zug</p>
-        </div>
-        <div class="card mini">
-          <h3>“Clear drills, big improvement in one day.”</h3>
-          <p class="muted">— Student, Lucerne</p>
-        </div>
-      </div>
-
-      <div style="margin-top:12px;">
-        <a class="ghost" href="testimonials.html">Read more testimonials →</a>
-      </div>
-    </section>
-
-    <!-- NEXT STEP -->
-    <section>
       <div class="card heroCard">
-        <h2 style="margin:0 0 8px;">Ready to ski better this season?</h2>
-        <p class="sub" style="margin:0 0 14px;">
-          Tell me your level, preferred resort, and your goal (e.g., “parallel on reds”, “short turns”, “confidence”, “carving basics”).
-          I’ll suggest a lesson plan.
+        <h1>苏黎世周边双板滑雪教学</h1>
+        <p class="sub">
+          我是 Ying（张颖），奥地利 <b>Landes 1（国际2.5级）</b> 认证的专业双板滑雪教练。我在周末和节假日时间在瑞士苏黎世和卢塞恩附近雪场提供教学服务。
         </p>
-        <div class="heroActions">
-          <a class="cta" href="contact.html">Contact / booking request</a>
-          <a class="ghost" href="payment.html">Payment info</a>
-          <a class="ghost" href="terms.html">Terms</a>
+
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="cards">
+        <div class="card mini">
+          <h2>成人团体课（双板）</h2>
+          <p>小规模成人团体课：以相对实惠的价格，接受专业、安全、系统的滑雪教学，同时结识水平相近的伙伴，一起进步。</p>
+          <ul>
+            <li>从零基础到中级红道水平，按能力分级教学</li>
+          </ul>
+          <div class="btnRow">
+            <a class="ghost" href="https://docs.google.com/document/d/1galRHFXZohdXM8-lwXkHmhBW49I99Lqp9bTN1tIYEx4/edit?usp=sharing" target="_blank" rel="noopener">团体课介绍</a>
+            <a class="cta" href="https://forms.gle/CjWm6iY9xRFnfdSy8" target="_blank" rel="noopener">团体课报名</a>
+          </div>
+        </div>
+
+        <div class="card mini">
+          <h2>私人课程（双板）</h2>
+          <p>适合希望灵活安排时间与内容的学员；可中文或英文授课。适用于零基础至中级水平。</p>
+          <ul>
+            <li>适合成人或家庭</li>
+          </ul>
+          <div class="btnRow">
+            <a class="ghost" href="https://docs.google.com/document/d/1hVu77lnbBhMdaUS-mgUtCLbEzHW9it_Szx_X_n53QEU/edit?usp=sharing" target="_blank" rel="noopener">私课介绍</a>
+            <a class="cta" href="https://calendly.com/ying-zhang-ski/private-lesson-half-day" target="_blank" rel="noopener">私课预约</a>
+          </div>
         </div>
       </div>
     </section>
+
+    <section id="contact">
+      <div class="card mini">
+        <h2>联系 / 咨询</h2>
+        <p>微信 id: epflyingzhang</p>
+        <div class="hr"></div>
+        <div class="btnRow">
+          <a class="ghost" href="https://docs.google.com/document/d/1JXuDtJ6MwW7wWo1dAVFi2r33leXoF8JIglUUcG3Iyqk/edit?usp=share_link" target="_blank" rel="noopener">新手装备指南</a>
+          <a class="ghost" href="https://docs.google.com/document/d/1JXuDtJ6MwW7wWo1dAVFi2r33leXoF8JIglUUcG3Iyqk/edit?usp=share_link" target="_blank" rel="noopener">服务条款（GTC）</a>
+        </div>
+      </div>
+    </section>
+
 
     <footer>
-      <div class="footGrid">
-        <div>© <span id="y"></span> Ying Zhang Ski Coaching • Switzerland</div>
-        <div class="smallLinks">
-          <a href="terms.html">Terms</a>
-          <a href="payment.html">Payment</a>
-          <a href="contact.html">Contact</a>
+      <div class="foot">
+        <div>© <span id="y"></span> Ying Zhang Ski Coaching</div>
+        <div class="links">
+          <a href="https://docs.google.com/document/d/1galRHFXZohdXM8-lwXkHmhBW49I99Lqp9bTN1tIYEx4/edit?usp=sharing" target="_blank" rel="noopener">团体课介绍</a>
+          <a href="https://docs.google.com/document/d/1hVu77lnbBhMdaUS-mgUtCLbEzHW9it_Szx_X_n53QEU/edit?usp=sharing" target="_blank" rel="noopener">私课介绍</a>
         </div>
-      </div>
-      <div style="margin-top:10px;">
-        <span class="muted">Note:</span> This site is a simple static website (GitHub Pages). Update text anytime by editing the HTML files.
       </div>
     </footer>
   </main>
