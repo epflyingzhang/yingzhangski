@@ -150,6 +150,35 @@
       transform: translateY(-3px);
     }
 
+    /* Announcement Banner */
+    .announcement-banner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      background: rgba(56, 189, 248, 0.10);
+      border: 1px solid rgba(56, 189, 248, 0.30);
+      border-radius: 16px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      font-size: 14.5px;
+      color: #f8fafc;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      flex-wrap: wrap;
+    }
+
+    .announcement-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      color: #070a14;
+      font-weight: 800;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
     /* Hero Section with Snow Mountain Landscape */
     .hero {
       padding: 12px 0 6px;
@@ -430,6 +459,12 @@
   </header>
 
   <main class="wrap">
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+      <span class="announcement-badge">📢 雪季预告</span>
+      <span><b>2026-27 雪季课程安排</b>将于 <b>11 月 1 日</b> 前后公布，敬请关注！</span>
+    </div>
+
     <section class="hero">
       <div class="card heroCard">
         <div class="hero-bg-img"></div>
