@@ -1,80 +1,406 @@
-
 <!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ying Zhang Ski Coaching｜苏黎世周边双板滑雪教学</title>
-  <meta name="theme-color" content="#0b1220" />
+  <meta name="theme-color" content="#070a14" />
   <style>
-    :root{
-      --bg:#0b1220; --card:#111a2f; --muted:#a7b0c0; --text:#eef2ff;
-      --line:rgba(255,255,255,.10); --accent:#7dd3fc; --accent2:#a78bfa;
-      --shadow:0 12px 28px rgba(0,0,0,.35); --radius:18px; --max:980px;
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --bg: #070a14;
+      --card-bg: rgba(15, 23, 42, 0.72);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --card-border-hover: rgba(56, 189, 248, 0.45);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent-cyan: #38bdf8;
+      --accent-purple: #c084fc;
+      --radius: 24px;
+      --max: 980px;
+      --shadow: 0 20px 40px -15px rgba(2, 6, 23, 0.7);
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(125,211,252,.20), transparent 60%),
-                  radial-gradient(900px 500px at 90% 10%, rgba(167,139,250,.18), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.65;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(11,18,32,.90), rgba(11,18,32,.55));
-      border-bottom:1px solid var(--line);
+
+    body {
+      font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
-    .nav{max-width:var(--max); margin:0 auto; padding:14px 22px; display:flex; justify-content:space-between; align-items:center; gap:12px;}
-    .brand{display:flex; align-items:center; gap:12px; font-weight:800}
-    .logo{
-      width:34px; height:34px; border-radius:10px;
-      background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,139,250,.95));
-      display:grid; place-items:center; color:#06101f; font-weight:900;
-      box-shadow: 0 10px 18px rgba(0,0,0,.25);
+
+    /* Ambient dynamic glow spheres */
+    .glow-sphere-1 {
+      position: absolute;
+      top: -150px;
+      left: 10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+      filter: blur(40px);
     }
-    nav ul{list-style:none; margin:0; padding:0; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
-    nav a{display:inline-flex; padding:8px 10px; border-radius:12px; border:1px solid transparent; font-size:14px; color:rgba(238,242,255,.92)}
-    nav a:hover{border-color:var(--line); background:rgba(255,255,255,.04)}
-    .cta{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px; border-radius:14px; font-weight:900; font-size:14px;
-      background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,139,250,.95));
-      color:#06101f; box-shadow: 0 14px 24px rgba(0,0,0,.28);
-      white-space:nowrap;
+
+    .glow-sphere-2 {
+      position: absolute;
+      top: 400px;
+      right: 5%;
+      width: 550px;
+      height: 550px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(192, 132, 252, 0.12) 0%, transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+      filter: blur(40px);
     }
-    .ghost{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px; border-radius:14px;
-      border:1px solid var(--line); background:rgba(255,255,255,.03);
-      font-weight:800; font-size:14px; color:rgba(238,242,255,.92);
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .ghost:hover{background:rgba(255,255,255,.06)}
-    .card{background: rgba(17,26,47,.78); border:1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);}
-    .hero{padding:26px 0 10px}
-    .heroCard{padding:22px}
-    h1{margin:0 0 10px; font-size:36px; line-height:1.15}
-    .sub{margin:0; color:var(--muted)}
-    .grid{display:grid; grid-template-columns: 1fr; gap:14px;}
-    .cards{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
-    @media (max-width: 860px){ .cards{grid-template-columns:1fr} h1{font-size:32px} }
-    .mini{padding:18px}
-    .mini h2{margin:0 0 8px; font-size:18px}
-    .mini p{margin:0; color:var(--muted)}
-    .btnRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-    ul{margin:10px 0 0; padding-left:18px}
-    li{margin:6px 0}
-    .hr{height:1px; background:var(--line); margin:16px 0}
-    footer{padding:20px 0 36px; color:var(--muted); font-size:13px}
-    .foot{display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center}
-    .links{display:flex; flex-wrap:wrap; gap:10px}
-    .links a{color:var(--muted)}
-    .links a:hover{color:rgba(238,242,255,.92)}
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+    }
+
+    /* Header Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(7, 10, 20, 0.85);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      display: grid;
+      place-items: center;
+      color: #070a14;
+      font-weight: 900;
+      font-size: 16px;
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.35);
+    }
+
+    .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.3px;
+      background: linear-gradient(to right, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Glass Cards */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      border-color: var(--card-border-hover);
+      box-shadow: 0 25px 50px -12px rgba(2, 6, 23, 0.8), 0 0 25px rgba(56, 189, 248, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Hero Section with Snow Mountain Landscape */
+    .hero {
+      padding: 12px 0 6px;
+    }
+
+    .heroCard {
+      position: relative;
+      padding: 48px 40px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('assets/alpine_mountains.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      z-index: 1;
+      opacity: 0.85;
+      transition: transform 6s ease-out, opacity 0.35s ease;
+    }
+
+    .heroCard:hover .hero-bg-img {
+      transform: scale(1.03);
+      opacity: 0.95;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(7, 10, 20, 0.25) 0%, rgba(7, 10, 20, 0.70) 50%, rgba(7, 10, 20, 0.92) 100%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -1.2px;
+      margin: 0 0 16px;
+      color: #ffffff;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    }
+
+    .sub {
+      margin: 0;
+      color: #f1f5f9;
+      font-size: 16px;
+      line-height: 1.75;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    .sub b {
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    /* Course Cards Grid */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 860px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      .heroCard {
+        padding: 32px 24px;
+        min-height: 280px;
+      }
+    }
+
+    .mini {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mini h2 {
+      font-family: 'Outfit', sans-serif;
+      margin: 0 0 12px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+    }
+
+    .mini p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* Button Rows & Badges */
+    .btnRow {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 14px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      color: #070a14;
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+      white-space: nowrap;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .cta:hover::after {
+      opacity: 1;
+    }
+
+    .cta:hover {
+      box-shadow: 0 10px 25px rgba(192, 132, 252, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 20px;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.04);
+      font-weight: 600;
+      font-size: 14px;
+      color: #e2e8f0;
+      backdrop-filter: blur(8px);
+    }
+
+    .ghost:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* Practical Info List */
+    ul.info-links {
+      margin: 14px 0 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    ul.info-links li {
+      margin: 8px 0;
+      padding-left: 28px;
+      position: relative;
+      font-size: 15px;
+    }
+
+    ul.info-links li::before {
+      content: '🎿';
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    ul.info-links a {
+      color: var(--text);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+      padding-bottom: 2px;
+    }
+
+    ul.info-links a:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+    }
+
+    /* Gallery Text */
+    .gallery-text a {
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .gallery-text a:hover {
+      color: var(--accent-purple);
+    }
+
+    /* Footer */
+    footer {
+      padding: 24px 0 36px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--card-border);
+      margin-top: 16px;
+    }
+
+    .foot {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .links a {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .links a:hover {
+      color: var(--text);
+    }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -86,32 +412,34 @@
 
     gtag('config', 'G-F5QCQW59HS');
   </script>
-
 </head>
 
-
-
 <body>
+  <div class="glow-sphere-1"></div>
+  <div class="glow-sphere-2"></div>
+
   <header>
     <div class="nav">
       <div class="brand">
         <div class="logo">YZ</div>
         <div>
-          <div>Ying Zhang Ski Coaching</div>
+          <div class="brand-name">Ying Zhang Ski Coaching</div>
         </div>
       </div>
-
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero">
       <div class="card heroCard">
-        <h1>苏黎世周边双板滑雪教学</h1>
+        <div class="hero-bg-img"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1>苏黎世周边双板滑雪教学</h1>
 <p class="sub">
   我是 Ying（张颖 🙋‍♂️），奥地利 <b>Landes 1（国际2.5级）</b> 认证教练。曾任职于 <b>Zermatt Evolution Ski School</b> 及 <b>MyMountains</b> 等高端私人滑雪学校。2024年起开启独立执教，专注于为瑞士当地华人提供专业教学。雪季周末及节假日活跃于苏黎世及卢塞恩周边雪场，比如Stoos, Engelberg, Flumserberg, Andermatt。已帮助超过100名学员入门滑雪和提升滑雪技术。
 </p>
-
+        </div>
       </div>
     </section>
 
@@ -177,7 +505,7 @@
 <section id="gallery">
   <div class="card mini">
     <h2>滑雪掠影</h2>
-    <p>
+    <p class="gallery-text">
       记录往期教学与雪山点滴 · 
       <a href="https://drive.google.com/drive/folders/18kspPtRgJg0GYEAfAonfDJWukULLfWaB?usp=sharing" 
          target="_blank" rel="noopener" style="text-decoration: underline; color: inherit;">
