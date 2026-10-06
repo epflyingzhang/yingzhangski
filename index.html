@@ -397,6 +397,118 @@
       color: var(--accent-purple);
     }
 
+    /* Contact, Info & Gallery Beautification */
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 12px 18px;
+      margin-top: 14px;
+    }
+
+    .wechat-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+    }
+
+    .wechat-id-code {
+      font-family: 'Outfit', monospace;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      letter-spacing: 0.5px;
+      background: rgba(56, 189, 248, 0.1);
+      padding: 3px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-cyan);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      color: #070a14;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .copy-btn.copied {
+      background: rgba(52, 211, 153, 0.2);
+      border-color: rgba(52, 211, 153, 0.5);
+      color: #34d399;
+    }
+
+    .action-card-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14.5px;
+      transition: all 0.25s ease;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .action-card-link:hover {
+      background: rgba(56, 189, 248, 0.08);
+      border-color: var(--card-border-hover);
+      color: var(--accent-cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .action-card-link .arrow-icon {
+      transition: transform 0.25s ease;
+    }
+
+    .action-card-link:hover .arrow-icon {
+      transform: translateX(4px);
+    }
+
+    .highlight-link {
+      background: rgba(192, 132, 252, 0.08);
+      border-color: rgba(192, 132, 252, 0.25);
+    }
+
+    .highlight-link:hover {
+      background: rgba(192, 132, 252, 0.16);
+      border-color: var(--accent-purple);
+      color: var(--accent-purple);
+    }
+
+    .gallery-info-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
     /* Footer */
     footer {
       padding: 24px 0 36px;
@@ -505,48 +617,50 @@
   <div class="card mini">
     <h2>联系 / 咨询</h2>
     
-    <div style="margin-top: 15px; line-height: 1.8;">
-      <p style="margin-bottom: 10px;">
-        <span style="opacity: 0.7;">微信 id:</span> 
-        <strong style="letter-spacing: 0.5px;">epflyingzhang</strong>
-      </p>
-      
-      <p>
-        <a href="https://calendly.com/yzski/intro" 
-           target="_blank" 
-           rel="noopener" 
-           style="text-decoration: none; color: inherit; border-bottom: 1px solid #ccc; padding-bottom: 2px; transition: opacity 0.3s;">
-           预约15分钟免费电话咨询 →
-        </a>
-      </p>
+    <div class="contact-row">
+      <div class="wechat-info">
+        <span style="opacity: 0.8;">微信 id:</span>
+        <code class="wechat-id-code">epflyingzhang</code>
+      </div>
+      <button onclick="copyWeChat()" class="copy-btn" id="copy-btn" title="点击复制微信 ID">📋 复制 ID</button>
     </div>
+    
+    <a href="https://calendly.com/yzski/intro" 
+       target="_blank" 
+       rel="noopener" 
+       class="action-card-link">
+       <span>📞 预约 15 分钟免费电话咨询</span>
+       <span class="arrow-icon">→</span>
+    </a>
   </div>
 </section>
-
 
     <section class="practical-info">
       <div class="card mini">
         <h2>实用信息</h2>
-        <ul class="info-links" style="margin-top:10px;">
-          <li>
-            🎿 <a href="https://docs.google.com/document/d/e/2PACX-1vTkgAYAzWJ6gG4zKPgVKFxypj0Sd4YTkycwnfCHu6HZwDLsvFsuvrRzquA6vtjCVhkvFZE3qgm0XjJS/pub" target="_blank" rel="noopener">
-              新手双板滑雪装备建议
-            </a>
-          </li>
-        </ul>
+        <a href="https://docs.google.com/document/d/e/2PACX-1vTkgAYAzWJ6gG4zKPgVKFxypj0Sd4YTkycwnfCHu6HZwDLsvFsuvrRzquA6vtjCVhkvFZE3qgm0XjJS/pub" 
+           target="_blank" 
+           rel="noopener" 
+           class="action-card-link">
+           <span>🎿 新手双板滑雪装备建议</span>
+           <span class="arrow-icon">→</span>
+        </a>
       </div>
     </section>
 
 <section id="gallery">
   <div class="card mini">
     <h2>滑雪掠影</h2>
-    <p class="gallery-text">
-      记录往期教学与雪山点滴 · 
+    <div class="gallery-info-row">
+      <p style="color: var(--muted); font-size: 14px; margin: 0;">记录往期教学与雪山点滴</p>
       <a href="https://drive.google.com/drive/folders/18kspPtRgJg0GYEAfAonfDJWukULLfWaB?usp=sharing" 
-         target="_blank" rel="noopener" style="text-decoration: underline; color: inherit;">
-         查看相册 →
+         target="_blank" 
+         rel="noopener" 
+         class="action-card-link highlight-link">
+         <span>🏔️ 查看云端相册</span>
+         <span class="arrow-icon">→</span>
       </a>
-    </p>
+    </div>
   </div>
 </section>
 
@@ -562,6 +676,46 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    function copyWeChat() {
+      const wechatId = 'epflyingzhang';
+      const btn = document.getElementById('copy-btn');
+      
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(wechatId).then(() => {
+          showCopied(btn);
+        }).catch(() => {
+          fallbackCopy(wechatId, btn);
+        });
+      } else {
+        fallbackCopy(wechatId, btn);
+      }
+    }
+
+    function fallbackCopy(text, btn) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showCopied(btn);
+      } catch (err) {
+        console.error('Copy failed', err);
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function showCopied(btn) {
+      btn.innerHTML = '✓ 已复制';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = '📋 复制 ID';
+        btn.classList.remove('copied');
+      }, 2000);
+    }
   </script>
 </body>
 </html>
