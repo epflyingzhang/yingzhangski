@@ -1,2 +1,5 @@
 .DS_Store
 .vscode/
+
+# Exclude GitHub action workflow file as requested
+.github/workflows/sync-calendly.yml

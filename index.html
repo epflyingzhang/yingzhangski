@@ -458,6 +458,83 @@
       color: #34d399;
     }
 
+    /* Calendly Live Availability Box */
+    .availability-box {
+      background: rgba(56, 189, 248, 0.05);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+
+    .availability-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .availability-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.2px;
+    }
+
+    .availability-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    @media (max-width: 520px) {
+      .availability-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .slot-pill {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13.5px;
+      transition: all 0.2s ease;
+    }
+
+    .slot-pill:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    .slot-date {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .slot-weekday {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-purple);
+      background: rgba(192, 132, 252, 0.14);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .availability-empty {
+      font-size: 13px;
+      color: var(--muted);
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 6px 0;
+    }
+
     .action-card-link {
       display: inline-flex;
       align-items: center;
@@ -507,6 +584,87 @@
       flex-direction: column;
       gap: 10px;
       margin-top: 10px;
+    }
+
+    /* Testimonials Chat Bubble Marquee Ticker */
+    .testimonial-viewport {
+      position: relative;
+      overflow: hidden;
+      margin-top: 18px;
+      width: 100%;
+      padding: 10px 0;
+      mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+    }
+
+    .testimonial-track {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      align-items: center;
+      animation: testimonialScroll 55s linear infinite;
+    }
+
+    .testimonial-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes testimonialScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Conversation Bubble Style Card */
+    .testimonial-card {
+      width: 320px;
+      height: 185px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.65), rgba(15, 23, 42, 0.85));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px 20px 20px 5px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .testimonial-card.wide {
+      width: 440px;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(56, 189, 248, 0.45);
+      background: linear-gradient(135deg, rgba(30, 58, 95, 0.75), rgba(15, 23, 42, 0.9));
+      box-shadow: 0 14px 30px -5px rgba(56, 189, 248, 0.25);
+      transform: translateY(-4px);
+    }
+
+    .chat-bubble-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      opacity: 0.85;
+      margin-bottom: 8px;
+    }
+
+    .testimonial-text {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #f1f5f9;
+      white-space: pre-line;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     /* Footer */
@@ -605,9 +763,124 @@
         <div class="card mini">
           <h2>私人课程（双板）</h2>
           <p>适合希望灵活安排时间与教学进度的学员；可中文或英文授课。适用于零基础至中级水平。适合成人或家庭。</p>
+          
+          <!-- Live Calendly Availability -->
+          <div class="availability-box">
+            <div class="availability-header">
+              <div class="availability-title">
+                <span>⚡ 近期最新空档</span>
+              </div>
+            </div>
+            <div class="availability-grid" id="calendly-availability-grid">
+              <div class="availability-empty">加载最新空档中...</div>
+            </div>
+          </div>
+
           <div class="btnRow">
             <a class="ghost" href="https://docs.google.com/document/d/e/2PACX-1vQkxTo2M5vTLHtCD1ybhbOrsgc23i-JYuDrHx453DMMMntfk_EPt9MJWuzhVLmMfHId8KqH6wI8-EIj/pub" target="_blank" rel="noopener">私课介绍</a>
             <a class="cta" href="https://calendly.com/ying-zhang-ski/private-lesson-half-day" target="_blank" rel="noopener">私课预约</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="card mini">
+        <h2>学员反馈</h2>
+        
+        <div class="testimonial-viewport">
+          <div class="testimonial-track">
+            <!-- First set of raw feedback -->
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">We had a great half day ski lessons in Engelberg. Our guide Ying was super experienced, friendly and helpful during the whole time and also tailored the experience to our skills and the conditions of the day. I highly recommend it to anyone who wants to improve their skills whilst having a joyful day in the mountains!</div>
+            </div>
+            <div class="testimonial-card wide">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">狠狠推荐我的 🇨🇭 滑雪教练（学生党价格友好）
+
+这个雪季我的进步很大，要你不说目前已经可以安全上红道了。这季雪结束之前我要狠狠推荐下我的教练，他没有小红书账号也不是教练工作，但是我觉得他的专业性和认真负责的态度真的非常值得一个自发的推荐。
+
+我已经推荐了朋友去他那边学习，朋友已经去了两次课，我自己上了四次课的样子，平行式一开始很勉强也不会控制速度到现在平行式已经很丝滑了，教练讲解动作教学的很细致，滑雪课一直觉得还是挺必要的...</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">再次安利 @滑雪教练 Ying 课程，小家伙们都很喜欢张老师的课🥰，下个雪季继续</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">今天雪不是特别好，但是小朋友们都很积极的在跟练，没有分心！！！老师厉害了 👍</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">点赞 👍 老师的课，昨天我们几个中级 2 班的学生都下 titlis 的黑道了。我自己也感觉我的脚比以前更稳了</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">同推荐！！很好的教练 👍👍👍
+同意同意！张教练的特别好！非常有耐心 ❤️</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">@滑雪教练 Ying 今天谢谢教练！辛苦啦！教学讲解清晰易懂，给我指出了之前没有意识到的滑雪动作问题 😂😂 非常推荐大家去找他上课 👍👍👍</div>
+            </div>
+            <div class="testimonial-card wide">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">群主亲测，推荐滑雪教练
+💰 低价 ✅ 🇦🇹 landes1 教练滑雪半天（3 小时）指导
+⭐ 手把手看你动作提出建议更正，减少受伤可能性
+💪 上完教练课再和水平相似小伙伴约滑，技术蹭蹭提升 👍👍👍 @Ying</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">今天在 stoos 和 @滑雪教练 Ying 学滑雪 🏂！学了很多看视频学不到的！非常推荐大家报名 😁😁😁</div>
+            </div>
+
+            <!-- Duplicate set for seamless continuous marquee loop -->
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">We had a great half day ski lessons in Engelberg. Our guide Ying was super experienced, friendly and helpful during the whole time and also tailored the experience to our skills and the conditions of the day. I highly recommend it to anyone who wants to improve their skills whilst having a joyful day in the mountains!</div>
+            </div>
+            <div class="testimonial-card wide">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">狠狠推荐我的 🇨🇭 滑雪教练（学生党价格友好）
+
+这个雪季我的进步很大，要你不说目前已经可以安全上红道了。这季雪结束之前我要狠狠推荐下我的教练，他没有小红书账号也不是教练工作，但是我觉得他的专业性和认真负责的态度真的非常值得一个自发的推荐。
+
+我已经推荐了朋友去他那边学习，朋友已经去了两次课，我自己上了四次课的样子，平行式一开始很勉强也不会控制速度到现在平行式已经很丝滑了，教练讲解动作教学的很细致，滑雪课一直觉得还是挺必要的...</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">再次安利 @滑雪教练 Ying 课程，小家伙们都很喜欢张老师的课🥰，下个雪季继续</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">今天雪不是特别好，但是小朋友们都很积极的在跟练，没有分心！！！老师厉害了 👍</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">点赞 👍 老师的课，昨天我们几个中级 2 班的学生都下 titlis 的黑道了。我自己也感觉我的脚比以前更稳了</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">同推荐！！很好的教练 👍👍👍
+同意同意！张教练的特别好！非常有耐心 ❤️</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">@滑雪教练 Ying 今天谢谢教练！辛苦啦！教学讲解清晰易懂，给我指出了之前没有意识到的滑雪动作问题 😂😂 非常推荐大家去找他上课 👍👍👍</div>
+            </div>
+            <div class="testimonial-card wide">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">群主亲测，推荐滑雪教练
+💰 低价 ✅ 🇦🇹 landes1 教练滑雪半天（3 小时）指导
+⭐ 手把手看你动作提出建议更正，减少受伤可能性
+💪 上完教练课再和水平相似小伙伴约滑，技术蹭蹭提升 👍👍👍 @Ying</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="chat-bubble-meta">💬</div>
+              <div class="testimonial-text">今天在 stoos 和 @滑雪教练 Ying 学滑雪 🏂！学了很多看视频学不到的！非常推荐大家报名 😁😁😁</div>
+            </div>
           </div>
         </div>
       </div>
@@ -674,6 +947,9 @@
     </footer>
   </main>
 
+  <!-- Availability Data Script (Bypasses file:// CORS restrictions) -->
+  <script src="./assets/availability.js"></script>
+
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
@@ -716,6 +992,47 @@
         btn.classList.remove('copied');
       }, 2000);
     }
+
+    // Render Calendly Availability Grid
+    function renderAvailability(data) {
+      const container = document.getElementById('calendly-availability-grid');
+      if (!container) return;
+
+      if (data && Array.isArray(data.next_4_dates) && data.next_4_dates.length > 0) {
+        container.innerHTML = data.next_4_dates.slice(0, 4).map(slot => `
+          <div class="slot-pill">
+            <span class="slot-date">📅 ${slot.date}</span>
+            <span class="slot-weekday">${slot.weekday}</span>
+          </div>
+        `).join('');
+      } else {
+        container.innerHTML = '<div class="availability-empty">暂时没有可预约日期</div>';
+      }
+    }
+
+    // Load Live Calendly Availability
+    (function initAvailability() {
+      // 1. Try global window data loaded via <script src="./assets/availability.js"> (Works on file:// and http://)
+      if (window.CALENDLY_AVAILABILITY) {
+        renderAvailability(window.CALENDLY_AVAILABILITY);
+        return;
+      }
+
+      // 2. Fallback to fetch() for dynamic server environment
+      fetch('./assets/availability.json?v=' + Date.now())
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.json();
+        })
+        .then(data => renderAvailability(data))
+        .catch(err => {
+          console.warn('Unable to fetch dynamic availability:', err);
+          const container = document.getElementById('calendly-availability-grid');
+          if (container) {
+            container.innerHTML = '<div class="availability-empty">暂时没有可预约日期</div>';
+          }
+        });
+    })();
   </script>
 </body>
 </html>
